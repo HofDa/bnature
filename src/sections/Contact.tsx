@@ -1,6 +1,6 @@
 export default function Contact() {
 return (
-<section id="kontakt" className="section">
+<section id="kontakt" className="bg-sand-100 section">
 <div className="container grid gap-10 md:grid-cols-2">
 <div>
 <h2 className="text-2xl font-extrabold md:text-3xl text-bark-700">Kontakt & Angebot</h2>
@@ -8,9 +8,9 @@ return (
 Erzähl uns kurz von deinem Anliegen – wir melden uns mit einem konkreten Vorschlag.
 </p>
 <ul className="mt-6 space-y-2 text-sm text-bark-700/80">
-<li>• Monitoring & Erhebungen (Wildbienen, Tagfalter, Vegetation, Boden)</li>
-<li>• Umweltbildung (Workshops, Führungen, Rätsel-Touren)</li>
-<li>• Naturnahe Gestaltung (Gemeinden, Schulen, Hotels, Betriebe)</li>
+<li>• Monitoring & Erhebungen (Flora & Fauna)</li>
+<li>• Umweltbildung (Workshops, Führungen, Biodiversitätsberatung)</li>
+<li>• Naturnahe Gartengestaltung (Gemeinden, Schulen, Hotels, Betriebe)</li>
 </ul>
 </div>
 <form className="card space-y-4">

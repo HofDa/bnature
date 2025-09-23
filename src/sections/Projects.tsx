@@ -1,6 +1,6 @@
 export default function Projects() {
 return (
-<section id="projekte" className="section">
+<section id="projekte" className="bg-sand-100 section">
 <div className="container">
 <h2 className="text-2xl font-extrabold md:text-3xl text-bark-700">Ausgewählte Projekte</h2>
 <div className="mt-8 grid gap-6 md:grid-cols-3">

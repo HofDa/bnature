@@ -1,6 +1,6 @@
 export default function Services() {
 return (
-<section id="leistungen" className="border-t bg-gray-50/60 section">
+<section id="leistungen" className="bg-primary-50 section">
 <div className="container">
 <h2 className="text-2xl font-extrabold md:text-3xl text-bark-700">Unsere Leistungen</h2>
 <p className="mt-2 max-w-prose text-bark-700/80">

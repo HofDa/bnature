@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'   // <— NEU
 
 export default defineConfig({
-  // falls GitHub Pages: base: '/BNATUREPAGE/',  // Repo-Namen anpassen
+  base: './https://github.com/HofDa/bnature/',  // Repo-Namen anpassen
   plugins: [react(), tailwindcss()],          // <— NEU
 })

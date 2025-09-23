@@ -1,6 +1,6 @@
 export default function Team() {
 return (
-<section id="team" className="border-t bg-sand-100 section">
+<section id="team" className="bg-primary-50  section">
 <div className="container">
 <h2 className="text-2xl font-extrabold md:text-3xl text-bark-700">Team</h2>
 <p className="mt-2 max-w-prose text-bark-700/80">

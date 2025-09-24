@@ -52,7 +52,7 @@ export default function Contact() {
               />
             </div>
             <div className="text-xs text-gray-500">
-              Mit dem Senden stimmst du der Verarbeitung deiner Angaben zur
+              Mit dem Senden stimmen Sie der Verarbeitung Ihrer Angaben zur
               Kontaktaufnahme zu.
             </div>
             <div className="flex gap-3">

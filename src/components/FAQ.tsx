@@ -8,11 +8,11 @@ const faqs = [
   },
   {
     q: 'Welche Ergebnisse bekomme ich?',
-    a: 'Ein Maßnahmenpaket mit Prioritäten, optional Monitoring-Design und Reporting-Vorlage.',
+    a: 'Ein maßgeschneidertes Konzept mit konkreten Empfehlungen und Prioritäten – je nach Bedarf ergänzt durch Monitoring-Design oder Bildungspakete.',
   },
   {
     q: 'Für wen eignet sich bnature?',
-    a: 'Gemeinden, Hotels, Schulen und Betriebe – überall dort, wo Flächen naturnah werden sollen.',
+    a: 'Für Gemeinden, Schulen, Hotels, Betriebe, Institutionen und Privatpersonen – überall dort, wo Wissen, Natur und Praxis verbunden werden sollen.',
   },
 ];
 

@@ -1,115 +1,128 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-/* Theme Tokens (Light Only) */
+/* === Design Tokens (Tailwind v4 @theme) === */
 @theme {
-  --font-display: Inter, ui-sans-serif, system-ui, sans-serif;
-  --font-body:    Inter, ui-sans-serif, system-ui, sans-serif;
+  /* Leaf (Primary) */
+  --color-leaf-50: #ecf6ed;
+  --color-leaf-100: #d7ecdd;
+  --color-leaf-200: #cbe7cd;
+  --color-leaf-300: #a6d5b3;
+  --color-leaf-400: #7fc593;
+  --color-leaf-500: #4ea86b;
+  --color-leaf-600: #2f6b3d;
+  --color-leaf-700: #255432;
+  --color-leaf-800: #1c4127;
+  --color-leaf-900: #153421;
 
-  /* Primary (Sage/Meadow) */
-  --color-primary-50: #F0F8F4;
-  --color-primary-100:#DFF0E4;
-  --color-primary-200:#BEE0C9;
-  --color-primary-300:#9CD2AE;
-  --color-primary-400:#6BB985;
-  --color-primary-500:#47A866;
-  --color-primary-600:#368552;
-  --color-primary-700:#2A6B42;
-  --color-primary-800:#1F4E2A;
-  --color-primary-900:#0E2A15;
+  /* Sky (Secondary accent) */
+  --color-sky-50: #eff7fe;
+  --color-sky-500: #5da9e9;
 
-  /* Secondary (Moos) */
-  --color-secondary-100:#E9F2EC;
-  --color-secondary-200:#CBDDD2;
-  --color-secondary-300:#AEC9B8;
-  --color-secondary-400:#8BB199;
-  --color-secondary-500:#6FA584;
-  --color-secondary-600:#567F66;
-  --color-secondary-700:#3F6050;
-  --color-secondary-800:#2B4337;
-  --color-secondary-900:#16241C;
+  /* Warm neutrals */
+  --color-sand-50: #f5f1ea;
+  --color-sand-100: #f3eee7;
 
-  /* Sand (Birke/Beige Neutrals) */
-  --color-sand-100:#F4F1EC;
-  --color-sand-200:#EAE6DE;
-  --color-sand-300:#DED7CA;
-  --color-sand-400:#CFC5B5;
-  --color-sand-500:#B7A891;
-  --color-sand-600:#9A8A72;
-  --color-sand-700:#7B6D58;
-  --color-sand-800:#5A4E3C;
-  --color-sand-900:#352E22;
-
-  /* Bark (Textbraun) */
-  --color-bark-100:#D9CEC3;
-  --color-bark-200:#B7A392;
-  --color-bark-300:#8D7661;
-  --color-bark-400:#6C5844;
-  --color-bark-500:#564533;
-  --color-bark-600:#443627;
-  --color-bark-700:#32281C;
-  --color-bark-800:#221C13;
-  --color-bark-900:#120F0A;
-
-  /* Accent (Sky) */
-  --color-accent-100:#E6F3FB;
-  --color-accent-200:#B9E0F7;
-  --color-accent-300:#7BC0EE;
-  --color-accent-400:#3FA3E6;
-  --color-accent-500:#2394E3;
-  --color-accent-600:#1C78B9;
-  --color-accent-700:#165D8F;
-  --color-accent-800:#0F4165;
-  --color-accent-900:#07263C;
-
-  /* Highlight (Frisches Hellgrün) */
-  --color-highlight-100:#F0FAF1;
-  --color-highlight-200:#D7F1DA;
-  --color-highlight-300:#AEE3B2;
-  --color-highlight-400:#7BD886;
-  --color-highlight-500:#57C869;
-  --color-highlight-600:#43A353;
-  --color-highlight-700:#317A3D;
-  --color-highlight-800:#1E5127;
-  --color-highlight-900:#0E2B14;
-
-
-  --font-size-fluid-1: clamp(1.125rem, 1.5vw + 0.5rem, 1.5rem);
-
-
-  
+  /* Radius & Shadow */
+  --radius-card: 1rem;
 }
 
-
-
-/* Base */
-@layer base {
-html { font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
-body { @apply bg-sand-100 text-bark-700; }
-h1, h2, h3 { @apply tracking-tight; }
-a { @apply text-accent-600 hover:underline; }
+/* === Layout Utilities === */
+.section {
+  @apply py-20;
+}
+.section-muted {
+  @apply py-20 bg-[#F5F7F9];
+}
+.container {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
 }
 
-
-/* Components */
-@layer components {
-.container { @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8; }
-.section { @apply py-16 md:py-20; }
-
-
-.card { @apply rounded-2xl border border-primary-200/50 bg-white p-6 shadow-sm; }
-
-
-.btn-primary { @apply inline-flex items-center gap-2 rounded-xl bg-primary-700 px-4 py-2 font-medium text-white shadow-sm hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500/40; }
-.btn-outline { @apply inline-flex items-center gap-2 rounded-xl border border-primary-700/70 px-4 py-2 font-medium text-primary-800 hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500/30; }
-.badge { @apply inline-flex items-center rounded-full bg-primary-100 px-3 py-1 text-xs font-semibold text-primary-800 ring-1 ring-primary-300/60; }
+.card {
+  @apply rounded-2xl bg-white ring-1 ring-gray-200 shadow-sm;
+}
+.card-hover {
+  @apply transition hover:shadow-md;
 }
 
-
-/* Utilities */
-@layer utilities {
-.dotted-path {
-background-image: radial-gradient(currentColor 1.2px, transparent 1.2px);
-background-size: 12px 12px;
-opacity: 0.4;
+.badge {
+  @apply inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1 text-sm;
 }
+.divider {
+  @apply h-px bg-gray-200/70 my-16;
+}
+
+/* === Buttons === */
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-medium
+         text-white bg-leaf-600 hover:bg-leaf-700;
+}
+.btn-ghost {
+  @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-medium
+         bg-white ring-1 ring-gray-300 hover:bg-gray-50;
+}
+
+/* === Inputs & Textareas === */
+.input,
+.textarea {
+  @apply w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder:text-gray-400;
+}
+.input:focus,
+.textarea:focus {
+  @apply border-leaf-500 ring-2 ring-leaf-200;
+}
+.textarea {
+  @apply min-h-32;
+}
+
+/* === Typografie === */
+.h1 {
+  @apply text-5xl font-semibold tracking-tight;
+}
+.h2 {
+  @apply text-3xl sm:text-4xl font-semibold tracking-tight;
+}
+.lead {
+  @apply text-lg text-gray-600;
+}
+.prose-basic {
+  @apply text-[17px] leading-7 text-gray-700;
+}
+
+/* Links & Fokus */
+a {
+  @apply underline-offset-4;
+}
+a:hover {
+  @apply underline;
+}
+:focus-visible {
+  @apply outline-none ring-2 ring-offset-2 ring-leaf-500;
+}
+
+/* === Motion Respect === */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* === Header === */
+.header {
+  @apply sticky top-0 z-40 bg-white/90 backdrop-blur;
+}
+.header-border {
+  @apply border-b border-gray-200;
+}
+
+/* === FAQ Tweaks === */
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .chev {
+  @apply rotate-180;
+}
+
+svg.lucide {
+  stroke-width: 1.8;
 }

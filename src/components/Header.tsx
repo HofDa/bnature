@@ -1,28 +1,59 @@
-const navItems = [
-{ label: "Leistungen", href: "#leistungen" },
-{ label: "Projekte", href: "#projekte" },
-{ label: "Team", href: "#team" },
-{ label: "Kontakt", href: "#kontakt" },
+import { useState } from 'react';
+import Logo from '../assets/bNature.jpg';
+
+const links = [
+  { href: '#leistungen', label: 'Leistungen' },
+  { href: '#referenzen', label: 'Referenzen' },
+  { href: '#about', label: 'Über uns' },
+  { href: '#faq', label: 'FAQ' },
 ];
 
-
 export default function Header() {
-return (
-<header className="sticky top-0 z-50 border-b border-primary-200/40 bg-white/80 backdrop-blur ring-1 ring-sand-200">
-<div className="container flex items-center justify-between py-3">
-<div className="font-display text-lg font-bold text-primary-700">b*nature</div>
-<nav className="hidden gap-6 md:flex">
-{navItems.map((item) => (
-<a
-key={item.href}
-href={item.href}
-className="text-primary-800 hover:text-primary-900"
->
-{item.label}
-</a>
-))}
-</nav>
-</div>
-</header>
-);
+  const [open, setOpen] = useState(false);
+  return (
+    <header className="header header-border">
+      <div className="container flex h-16 items-center justify-between">
+        <a href="/" className="flex items-center">
+          <img src={Logo} alt="b*nature Logo" className="h-10 w-auto" />
+        </a>
+        <nav className="hidden md:flex items-center gap-6">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="text-gray-700 hover:text-gray-900"
+            >
+              {l.label}
+            </a>
+          ))}
+          <a href="#kontakt" className="btn-primary">
+            Anfragen
+          </a>
+        </nav>
+
+        <button
+          onClick={() => setOpen((v) => !v)}
+          className="md:hidden rounded-lg p-2 ring-1 ring-gray-300"
+          aria-label="Menü"
+        >
+          ☰
+        </button>
+      </div>
+
+      {open && (
+        <div className="md:hidden border-t border-gray-200">
+          <div className="container py-3 flex flex-col gap-2">
+            {links.map((l) => (
+              <a key={l.href} href={l.href} className="py-2 text-gray-700">
+                {l.label}
+              </a>
+            ))}
+            <a href="#kontakt" className="btn-primary">
+              Anfragen
+            </a>
+          </div>
+        </div>
+      )}
+    </header>
+  );
 }

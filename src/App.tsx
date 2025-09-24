@@ -1,24 +1,27 @@
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Hero from './sections/Hero'
-import Services from './sections/Services'
-import Projects from './sections/Projects'
-import Team from './sections/Team'
-import Contact from './sections/Contact'
-
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Services from './components/Services';
+import Logos from './components/Logos';
+import Testimonials from './components/Testimonials';
+import About from './components/About';
+import FAQ from './components/FAQ';
+import Contact from './components/Contact';
+import CTA from './components/CTA';
+import Footer from './components/Footer';
 
 export default function App() {
-return (
-<div className="font-body text-gray-900">
-<Header />
-<main>
-<Hero />
-<Services />
-<Projects />
-<Team />
-<Contact />
-</main>
-<Footer />
-</div>
-)
+  return (
+    <div>
+      <Header />
+      <Hero />
+      <Services />
+      <Logos />
+      <Testimonials />
+      <About />
+      <FAQ />
+      <Contact />
+      <CTA />
+      <Footer />
+    </div>
+  );
 }

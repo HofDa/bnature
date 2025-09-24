@@ -1,7 +1,7 @@
 // src/components/About.tsx
 import Icon from './ui/Icon';
 import { FlaskConical, Target } from 'lucide-react';
-import BioGeeks from '../assets/geeks.png';
+import BioGeeks from '../assets/geeks1.png';
 
 export default function About() {
   return (

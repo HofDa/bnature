@@ -1,39 +1,52 @@
 import Icon from './ui/Icon';
 import { Leaf, BadgeCheck } from 'lucide-react';
 import HeroImage from '../assets/hero.jpg';
+import { useTranslation } from 'react-i18next';
 
 export default function Hero() {
+  const { t } = useTranslation();
+
   return (
-    <section className="section-muted">
+    <section id="home" className="section-muted">
       <div className="container grid lg:grid-cols-2 gap-10 items-center">
         <div>
           <span className="badge">
             <Icon as={Leaf} />
-            bnature · Monitoring, Bildung, Beratung
+            {t('hero.badge')}
             <span className="ml-2 inline-flex items-center gap-1 text-leaf-700">
               <Icon as={BadgeCheck} size={18} />
-              geprüft
+              {t('hero.verified', { defaultValue: 'geprüft' })}
             </span>
           </span>
-          <h1 className="mt-6 h1">
-            Biodiversität messbar machen.
-            <br /> Lebensräume naturnah gestalten.
-          </h1>
-          <p className="mt-5 lead max-w-prose">
-            Wissenschaft verbindet sich mit Praxis – für messbare ökologische
-            Wirkung.
-          </p>
+
+          <h1 className="mt-6 h1">{t('hero.title')}</h1>
+
+          <p className="mt-5 lead max-w-prose">{t('hero.subtitle')}</p>
+
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#kontakt" className="btn-primary">
-              Projekt anfragen
+            <a
+              href="#contact"
+              className="btn-primary"
+              aria-label={t('hero.ctaPrimary')}
+              title={t('hero.ctaPrimary')}
+            >
+              {t('hero.ctaPrimary')}
             </a>
-            <a href="#leistungen" className="btn-ghost">
-              Leistungen ansehen
+            <a
+              href="#services"
+              className="btn-ghost"
+              aria-label={t('hero.ctaSecondary')}
+              title={t('hero.ctaSecondary')}
+            >
+              {t('hero.ctaSecondary')}
             </a>
           </div>
+
           <p className="mt-4 text-sm text-gray-500">
-            Expertise von Biolog:innen, Ökolog:innen, Naturvermittler:innen und
-            Gärtner:innen
+            {t('hero.expertise', {
+              defaultValue:
+                'Expertise von Biolog:innen, Ökolog:innen, Naturvermittler:innen und Gärtner:innen',
+            })}
           </p>
         </div>
 
@@ -43,7 +56,7 @@ export default function Hero() {
         >
           <img
             src={HeroImage}
-            alt="Fallkaefer auf Schafgarbe"
+            alt={t('alt.heroImage')}
             className="absolute inset-0 h-full w-full object-cover"
             loading="eager"
             draggable={false}

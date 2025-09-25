@@ -1,14 +1,16 @@
+// src/components/Contact.tsx
+import { useTranslation } from 'react-i18next';
+
 export default function Contact() {
+  const { t } = useTranslation();
+
   return (
-    <section id="kontakt" className="section-muted">
+    <section id="contact" className="section-muted">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-10 items-start">
           <div>
-            <h2 className="h2">Kontakt</h2>
-            <p className="mt-3 lead max-w-prose">
-              Teilen Sie uns kurz mit, wobei wir Sie unterstützen dürfen – wir
-              melden uns mit einem Vorschlag für das Erstgespräch.
-            </p>
+            <h2 className="h2">{t('contact.heading')}</h2>
+            <p className="mt-3 lead max-w-prose">{t('contact.lead')}</p>
             <div className="mt-6 text-sm text-gray-600">
               <p>
                 Mail:{' '}
@@ -31,36 +33,42 @@ export default function Contact() {
           >
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Name
+                {t('contact.form.name', { defaultValue: 'Name' })}
               </label>
               <input className="input" name="name" required />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                E-Mail
+                {t('contact.form.email', { defaultValue: 'E-Mail' })}
               </label>
               <input className="input" type="email" name="email" required />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Nachricht
+                {t('contact.form.message', { defaultValue: 'Nachricht' })}
               </label>
               <textarea
                 className="textarea"
                 name="message"
-                placeholder="Projekt, Ziel, Zeitrahmen …"
+                placeholder={t('contact.form.placeholder', {
+                  defaultValue: 'Projekt, Ziel, Zeitrahmen …',
+                })}
               />
             </div>
             <div className="text-xs text-gray-500">
-              Mit dem Senden stimmen Sie der Verarbeitung Ihrer Angaben zur
-              Kontaktaufnahme zu.
+              {t('contact.form.privacy', {
+                defaultValue:
+                  'Mit dem Senden stimmen Sie der Verarbeitung Ihrer Angaben zur Kontaktaufnahme zu.',
+              })}
             </div>
             <div className="flex gap-3">
               <button type="submit" className="btn-primary">
-                Anfrage senden
+                {t('contact.button')}
               </button>
               <a href="mailto:info@bnature.example" className="btn-ghost">
-                Direkt per Mail
+                {t('contact.form.directMail', {
+                  defaultValue: 'Direkt per Mail',
+                })}
               </a>
             </div>
           </form>

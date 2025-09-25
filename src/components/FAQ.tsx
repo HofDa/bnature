@@ -1,30 +1,25 @@
+// src/components/FAQ.tsx
 import Icon from './ui/Icon';
 import { ChevronDown } from 'lucide-react';
-
-const faqs = [
-  {
-    q: 'Wie läuft ein Erstgespräch ab?',
-    a: '30–45 Min online oder vor Ort. Wir klären Ziele, Flächen, Budgetrahmen und Zeitplan.',
-  },
-  {
-    q: 'Welche Ergebnisse bekomme ich?',
-    a: 'Ein maßgeschneidertes Konzept mit konkreten Empfehlungen und Prioritäten – je nach Bedarf ergänzt durch Monitoring-Design oder Bildungspakete.',
-  },
-  {
-    q: 'Für wen eignet sich bnature?',
-    a: 'Für Gemeinden, Schulen, Hotels, Betriebe, Institutionen und Privatpersonen – überall dort, wo Wissen, Natur und Praxis verbunden werden sollen.',
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 export default function FAQ() {
+  const { t } = useTranslation();
+
+  const faqs = [
+    { q: t('faq.q1'), a: t('faq.a1') },
+    { q: t('faq.q2'), a: t('faq.a2') },
+    { q: t('faq.q3'), a: t('faq.a3') },
+  ];
+
   return (
     <section id="faq" className="section">
       <div className="container">
-        <h2 className="h2">Häufige Fragen</h2>
+        <h2 className="h2">{t('faq.heading')}</h2>
 
         <div className="mt-6 grid gap-4">
-          {faqs.map((f) => (
-            <details key={f.q} className="card p-5">
+          {faqs.map((f, i) => (
+            <details key={i} className="card p-5">
               <summary className="relative cursor-pointer pr-10 list-none select-none">
                 <span className="font-medium">{f.q}</span>
                 <span className="chev absolute right-3 top-1/2 -translate-y-1/2 transition-transform">

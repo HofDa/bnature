@@ -2,17 +2,19 @@
 import Icon from './ui/Icon';
 import { FlaskConical, Target } from 'lucide-react';
 import BioGeeks from '../assets/geeks1.png';
+import { useTranslation } from 'react-i18next';
 
 export default function About() {
+  const { t } = useTranslation();
+
   return (
     <section id="about" className="section-muted">
       <div className="container grid lg:grid-cols-2 gap-10 items-start">
         {/* Bildseite */}
         <div>
-          {/* Ersetze /about.jpg durch dein Bild (WebP empfohlen) */}
           <img
             src={BioGeeks}
-            alt="bnature – Team, Arbeit im Feld und Beratung"
+            alt={t('alt.aboutImage')}
             className="w-full rounded-2xl ring-1 ring-gray-200"
             loading="lazy"
           />
@@ -20,12 +22,8 @@ export default function About() {
 
         {/* Textseite */}
         <div>
-          <h2 className="h2">Warum bnature?</h2>
-          <p className="mt-4 lead max-w-prose">
-            Wir verbinden ökologische Expertise mit didaktischer Erfahrung und
-            klarer Kommunikation. So entstehen Projekte, die Menschen erreichen
-            und Lebensräume nachweislich verbessern.
-          </p>
+          <h2 className="h2">{t('about.heading')}</h2>
+          <p className="mt-4 lead max-w-prose">{t('about.text')}</p>
 
           {/* Callouts */}
           <div className="mt-6 grid sm:grid-cols-2 gap-4">
@@ -33,10 +31,11 @@ export default function About() {
               <div className="inline-flex w-9 h-9 items-center justify-center rounded-full bg-leaf-50 text-leaf-700">
                 <Icon as={FlaskConical} size={18} />
               </div>
-              <h3 className="mt-3 font-semibold">Wissenschaftliche Basis</h3>
+              <h3 className="mt-3 font-semibold">
+                {t('about.callouts.scienceTitle')}
+              </h3>
               <p className="mt-1 text-sm text-gray-600">
-                Aktuelle Literatur, Standards &amp; Monitoring-Designs –
-                fundiert und nachvollziehbar.
+                {t('about.callouts.scienceText')}
               </p>
             </div>
 
@@ -44,40 +43,26 @@ export default function About() {
               <div className="inline-flex w-9 h-9 items-center justify-center rounded-full bg-leaf-50 text-leaf-700">
                 <Icon as={Target} size={18} />
               </div>
-              <h3 className="mt-3 font-semibold">Praxis &amp; Wirkung</h3>
+              <h3 className="mt-3 font-semibold">
+                {t('about.callouts.impactTitle')}
+              </h3>
               <p className="mt-1 text-sm text-gray-600">
-                Planbar, umsetzbar, messbar – mit klaren Prioritäten und
-                Erfolgskontrolle.
+                {t('about.callouts.impactText')}
               </p>
             </div>
           </div>
 
-          {/* Mini-Liste / USP (optional, aber hilfreich) */}
+          {/* Mini-Liste / USP */}
           <ul className="mt-6 prose-basic space-y-2">
-            <li>
-              <span className="font-medium text-gray-900">
-                Transparente Prozesse:
-              </span>{' '}
-              Erstgespräch, Maßnahmenplan, Umsetzung, Monitoring.
-            </li>
-            <li>
-              <span className="font-medium text-gray-900">
-                Zielgruppengerecht:
-              </span>{' '}
-              Gemeinden, Hotels, Schulen &amp; Betriebe.
-            </li>
-            <li>
-              <span className="font-medium text-gray-900">
-                Mehrsprachig &amp; didaktisch:
-              </span>{' '}
-              Materialien und Formate, die Wissen erlebbar machen.
-            </li>
+            <li>{t('about.usps.process')}</li>
+            <li>{t('about.usps.target')}</li>
+            <li>{t('about.usps.didactic')}</li>
           </ul>
 
           {/* Deep-CTA zur Kontaktsektion */}
           <div className="mt-6">
-            <a href="#kontakt" className="btn-primary">
-              Erstgespräch anfragen
+            <a href="#contact" className="btn-primary">
+              {t('about.cta')}
             </a>
           </div>
         </div>

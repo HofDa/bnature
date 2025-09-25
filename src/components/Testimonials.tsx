@@ -1,13 +1,15 @@
 // src/components/Testimonials.tsx
 import { useTranslation } from 'react-i18next';
 
+type Testimonial = { quote: string; name: string; role: string };
+
 export default function Testimonials() {
   const { t } = useTranslation();
 
-  const items = t<{ quote: string; name: string; role: string }[]>(
-    'testimonials.items',
-    { returnObjects: true }
-  );
+  const items =
+    (t('testimonials.items', {
+      returnObjects: true,
+    }) as unknown as Testimonial[]) || [];
 
   return (
     <section className="section-muted">

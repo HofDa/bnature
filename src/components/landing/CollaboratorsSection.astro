@@ -1,0 +1,78 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Icon from '../ui/Icon.astro';
+import type { PageContent } from '../../data/content';
+
+interface Props {
+  collaborators: PageContent['collaborators'];
+  collaboratorImages: Record<'field' | 'team' | 'workshop', ImageMetadata>;
+}
+
+const { collaborators, collaboratorImages } = Astro.props;
+---
+<section id="collaborators" class="section bg-sand-100">
+  <div class="section-container" data-reveal>
+    <h2 class="h2">{collaborators.heading}</h2>
+    <p class="lead mt-3">{collaborators.lead}</p>
+    <div class="mt-8" data-collab-carousel role="region" aria-roledescription="carousel" aria-label="Collaborators">
+      <div
+        id="collaborator-track"
+        class="grid auto-cols-[78%] grid-flow-col gap-6 overflow-x-auto pb-2 snap-x snap-mandatory sm:auto-cols-[45%] lg:auto-cols-[30%]"
+        data-collab-track
+        tabindex="0"
+        aria-label="Collaborator slides"
+      >
+        {collaborators.items.map((item) => (
+          <article class="card mx-auto w-full max-w-sm snap-start overflow-hidden p-0">
+            <Image
+              src={collaboratorImages[item.image]}
+              alt={item.name}
+              widths={[320, 480, 640]}
+              sizes="(max-width: 639px) 78vw, (max-width: 1023px) 45vw, 30vw"
+              class="aspect-[3/4] w-full object-cover object-center"
+              loading="lazy"
+            />
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-bark-700">{item.name}</h3>
+              <p class="mt-2 text-bark-700/80">{item.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+      <p class="sr-only" data-collab-status aria-live="polite"></p>
+      <div class="mt-4 flex items-center justify-center gap-3">
+        <button
+          type="button"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-bark-700/70 transition hover:bg-white hover:text-bark-700 disabled:cursor-not-allowed disabled:opacity-40"
+          data-collab-prev
+          aria-label="Previous collaborator"
+        >
+          <Icon name="chevron-down" class="h-4 w-4 -rotate-90" />
+        </button>
+        <div class="flex items-center gap-2" data-collab-dots>
+          {collaborators.items.map((item, index) => (
+            <button
+              type="button"
+              aria-label={`Go to collaborator ${index + 1}`}
+              aria-controls="collaborator-track"
+              aria-current={index === 0 ? 'true' : 'false'}
+              data-collab-dot={index}
+              class="inline-flex h-8 w-8 items-center justify-center rounded-full transition hover:bg-primary-100"
+            >
+              <span class="h-2 w-2 rounded-full bg-gray-300 transition data-[active=true]:w-5 data-[active=true]:bg-primary-700" data-collab-dot-indicator></span>
+            </button>
+          ))}
+        </div>
+        <button
+          type="button"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-bark-700/70 transition hover:bg-white hover:text-bark-700 disabled:cursor-not-allowed disabled:opacity-40"
+          data-collab-next
+          aria-label="Next collaborator"
+        >
+          <Icon name="chevron-down" class="h-4 w-4 rotate-90" />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+---
+import Icon from '../ui/Icon.astro';
+import type { PageContent } from '../../data/content';
+
+interface Props {
+  faq: PageContent['faq'];
+}
+
+const { faq } = Astro.props;
+---
+<section id="faq" class="section bg-white">
+  <div class="section-container" data-reveal>
+    <h2 class="h2">{faq.heading}</h2>
+    <div class="mt-6 grid gap-4">
+      {faq.items.map((item) => (
+        <details class="card p-5">
+          <summary class="relative list-none cursor-pointer select-none pr-10 font-medium text-bark-700">
+            {item.q}
+            <span class="absolute right-3 top-1/2 -translate-y-1/2 text-bark-700/70">
+              <Icon name="chevron-down" class="h-4.5 w-4.5" />
+            </span>
+          </summary>
+          <p class="text-bark-700/80 mt-3">{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LandingPage from '../../components/LandingPage.astro';
+import { content, type Lang } from '../../data/content';
+import heroImg from '../../assets/hero.jpg';
+import '../../styles/globals.css';
+
+export const getStaticPaths = () => {
+  const langs: Lang[] = ['de', 'it'];
+  return langs.map((lang) => ({ params: { lang } }));
+};
+
+const lang = Astro.params.lang as Lang;
+if (!(lang in content)) {
+  throw new Error(`Unsupported language: ${lang}`);
+}
+
+const t = content[lang];
+const canonicalPath = `/${lang}`;
+const alternateDePath = '/de';
+const alternateItPath = '/it';
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'b*nature',
+  url: new URL(canonicalPath, Astro.site ?? new URL('https://example.com')).toString(),
+  inLanguage: lang,
+};
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'b*nature',
+  url: new URL(canonicalPath, Astro.site ?? new URL('https://example.com')).toString(),
+  email: 'info@bnature.bz',
+  logo: new URL(heroImg.src, Astro.site ?? new URL('https://example.com')).toString(),
+};
+
+const jsonLd = JSON.stringify([websiteSchema, organizationSchema]);
+---
+<BaseLayout
+  lang={lang}
+  title={t.title}
+  description={t.description}
+  canonicalPath={canonicalPath}
+  alternateDePath={alternateDePath}
+  alternateItPath={alternateItPath}
+  ogImagePath={heroImg.src}
+>
+  <script type="application/ld+json" set:html={jsonLd}></script>
+  <LandingPage lang={lang} />
+</BaseLayout>

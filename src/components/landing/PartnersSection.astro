@@ -1,0 +1,33 @@
+---
+import type { PageContent } from '../../data/content';
+
+interface Props {
+  partners: PageContent['partners'];
+}
+
+const { partners } = Astro.props;
+---
+<section id="partners" class="section bg-sand-100">
+  <div class="section-container text-center" data-reveal>
+    <p class="text-sm text-bark-700/70">{partners.heading}</p>
+    <div class="mt-6 grid grid-cols-2 items-center gap-8 opacity-80 sm:grid-cols-4">
+      {partners.items.map((partner) => (
+        partner.url ? (
+          <a
+            href={partner.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mx-auto inline-flex h-10 w-full max-w-[220px] items-center justify-center rounded-lg border border-primary-200/50 bg-white px-3 text-sm font-medium text-bark-700/80 grayscale transition hover:text-bark-700 hover:no-underline"
+            aria-label={`Partner: ${partner.name}`}
+          >
+            {partner.logo ? <img src={partner.logo} alt={partner.name} class="h-7 w-auto object-contain" loading="lazy" decoding="async" /> : partner.name}
+          </a>
+        ) : (
+          <div class="mx-auto inline-flex h-10 w-full max-w-[220px] items-center justify-center rounded-lg border border-primary-200/50 bg-white px-3 text-sm font-medium text-bark-700/80 grayscale">
+            {partner.logo ? <img src={partner.logo} alt={partner.name} class="h-7 w-auto object-contain" loading="lazy" decoding="async" /> : partner.name}
+          </div>
+        )
+      ))}
+    </div>
+  </div>
+</section>

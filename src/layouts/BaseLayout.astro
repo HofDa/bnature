@@ -1,0 +1,63 @@
+---
+interface Props {
+  lang: 'de' | 'it';
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  alternateDePath?: string;
+  alternateItPath?: string;
+  ogImagePath?: string;
+  robots?: string;
+}
+
+const {
+  lang,
+  title,
+  description,
+  canonicalPath = `/${lang}`,
+  alternateDePath = '/de',
+  alternateItPath = '/it',
+  ogImagePath,
+  robots = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
+} = Astro.props;
+
+const baseUrl = Astro.site ?? new URL('https://example.com');
+const canonical = new URL(canonicalPath, baseUrl).toString();
+const altDe = new URL(alternateDePath, baseUrl).toString();
+const altIt = new URL(alternateItPath, baseUrl).toString();
+const ogImage = ogImagePath ? new URL(ogImagePath, baseUrl).toString() : undefined;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="de" href={altDe} />
+    <link rel="alternate" hreflang="it" href={altIt} />
+    <link rel="alternate" hreflang="x-default" href={altDe} />
+    <meta property="og:site_name" content="b*nature" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content={lang === 'de' ? 'de_DE' : 'it_IT'} />
+    <meta property="og:url" content={canonical} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+  </head>
+  <body class="font-body bg-sand-100 text-bark-700">
+    <slot />
+  </body>
+</html>

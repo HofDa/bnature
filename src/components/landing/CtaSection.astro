@@ -1,0 +1,22 @@
+---
+import type { PageContent } from '../../data/content';
+
+interface Props {
+  cta: PageContent['cta'];
+  secondaryLabel: string;
+}
+
+const { cta, secondaryLabel } = Astro.props;
+---
+<section class="section bg-white">
+  <div class="section-container" data-reveal>
+    <div class="card p-8 text-center md:p-10">
+      <h2 class="h2">{cta.heading}</h2>
+      <p class="text-bark-700/80 mt-3">{cta.text}</p>
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+        <a href="#contact" class="btn-primary">{cta.primary}</a>
+        <a href="#services" class="btn-ghost">{secondaryLabel}</a>
+      </div>
+    </div>
+  </div>
+</section>

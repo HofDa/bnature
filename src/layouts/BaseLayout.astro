@@ -22,9 +22,13 @@ const {
 } = Astro.props;
 
 const baseUrl = Astro.site ?? new URL('https://example.com');
-const canonical = new URL(canonicalPath, baseUrl).toString();
-const altDe = new URL(alternateDePath, baseUrl).toString();
-const altIt = new URL(alternateItPath, baseUrl).toString();
+const addBase = (path: string) => {
+  const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+  return `${base}${path.replace(/^\/+/, '')}`;
+};
+const canonical = new URL(addBase(canonicalPath), baseUrl).toString();
+const altDe = new URL(addBase(alternateDePath), baseUrl).toString();
+const altIt = new URL(addBase(alternateItPath), baseUrl).toString();
 const ogImage = ogImagePath ? new URL(ogImagePath, baseUrl).toString() : undefined;
 ---
 <!doctype html>

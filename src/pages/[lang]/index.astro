@@ -20,11 +20,16 @@ const canonicalPath = `/${lang}`;
 const alternateDePath = '/de';
 const alternateItPath = '/it';
 
+const withBase = (path: string) => {
+  const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+  return `${base}${path.replace(/^\/+/, '')}`;
+};
+
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'b*nature',
-  url: new URL(canonicalPath, Astro.site ?? new URL('https://example.com')).toString(),
+  url: new URL(withBase(canonicalPath), Astro.site ?? new URL('https://example.com')).toString(),
   inLanguage: lang,
 };
 
@@ -32,7 +37,7 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'b*nature',
-  url: new URL(canonicalPath, Astro.site ?? new URL('https://example.com')).toString(),
+  url: new URL(withBase(canonicalPath), Astro.site ?? new URL('https://example.com')).toString(),
   email: 'info@bnature.bz',
   logo: new URL(heroImg.src, Astro.site ?? new URL('https://example.com')).toString(),
 };

@@ -7,14 +7,18 @@ interface Props {
 }
 
 const { lang, footer } = Astro.props;
+const withBase = (path: string) => {
+  const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+  return `${base}${path.replace(/^\/+/, '')}`;
+};
 ---
 <footer class="border-t bg-white">
   <div class="container flex flex-col items-center justify-between gap-4 py-8 md:flex-row">
     <p class="text-sm text-bark-700/70">&copy; {new Date().getFullYear()} b*nature - {footer.rights}</p>
     <nav class="flex gap-4 text-sm text-bark-700/80">
-      <a href={`/${lang}/impressum`} class="hover:text-bark-900 hover:no-underline">{footer.links.impressum}</a>
-      <a href={`/${lang}/privacy`} class="hover:text-bark-900 hover:no-underline">{footer.links.privacy}</a>
-      <a href={`/${lang}/cookies`} class="hover:text-bark-900 hover:no-underline">{footer.links.cookies}</a>
+      <a href={withBase(`/${lang}/impressum`)} class="hover:text-bark-900 hover:no-underline">{footer.links.impressum}</a>
+      <a href={withBase(`/${lang}/privacy`)} class="hover:text-bark-900 hover:no-underline">{footer.links.privacy}</a>
+      <a href={withBase(`/${lang}/cookies`)} class="hover:text-bark-900 hover:no-underline">{footer.links.cookies}</a>
     </nav>
   </div>
 </footer>

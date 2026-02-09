@@ -8,6 +8,10 @@ interface Props {
 }
 
 const { lang, contact } = Astro.props;
+const withBase = (path: string) => {
+  const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+  return `${base}${path.replace(/^\/+/, '')}`;
+};
 ---
 <section id="contact" class="section bg-sand-100">
   <div class="section-container" data-reveal>
@@ -31,7 +35,7 @@ const { lang, contact } = Astro.props;
         id="contact-form"
         name="contact"
         method="post"
-        action={`/${lang}/?contact=success#contact`}
+        action={`${withBase(`/${lang}`)}?contact=success#contact`}
         data-netlify="true"
         netlify-honeypot="bot-field"
         data-contact-form

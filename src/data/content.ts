@@ -154,7 +154,7 @@ export const content: Record<Lang, PageContent> = {
     faq: {
       heading: 'Häufige Fragen',
       items: [
-        { q: 'Wie lauft ein Erstgesprach ab?', a: '30-45 Minuten online oder vor Ort mit Zielklärung, Flächenbegutachtung und Zeitplan.' },
+        { q: 'Wie läuft ein Erstgespräch ab?', a: '30-45 Minuten online oder vor Ort mit Zielklärung, Flächenbegutachtung und Zeitplan.' },
         { q: 'Welche Ergebnisse bekomme ich?', a: 'Ein passendes Konzept mit klaren Empfehlungen und Prioritäten.' },
         { q: 'Für wen ist b*nature geeignet?', a: 'Für Gemeinden, Schulen, Hotels, Betriebe, Institutionen und Privatpersonen.' },
       ],

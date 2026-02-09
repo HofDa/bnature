@@ -48,7 +48,7 @@ const { collaborators, collaboratorImages } = Astro.props;
           data-collab-prev
           aria-label="Previous collaborator"
         >
-          <Icon name="chevron-down" class="h-4 w-4 -rotate-90" />
+          <Icon name="chevron-down" class="h-4 w-4 rotate-90" />
         </button>
         <div class="flex items-center gap-2" data-collab-dots>
           {collaborators.items.map((item, index) => (
@@ -70,7 +70,7 @@ const { collaborators, collaboratorImages } = Astro.props;
           data-collab-next
           aria-label="Next collaborator"
         >
-          <Icon name="chevron-down" class="h-4 w-4 rotate-90" />
+          <Icon name="chevron-down" class="h-4 w-4 -rotate-90" />
         </button>
       </div>
     </div>

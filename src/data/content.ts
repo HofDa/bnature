@@ -125,8 +125,8 @@ export const content: Record<Lang, PageContent> = {
           image: 'workshop',
         },
         {
-          name: 'Katherian Damisch',
-          description: 'Katharina Damisch verbindet Vermittlung und Konzeptarbeit mit praktischer Umsetzung. Sie entwickelt Formate, strukturiert Prozesse und greift auch selbst zu Werkzeug und Material, wenn Maßnahmen der Biodiversität zugutekommen.',
+          name: 'Katherina Damisch',
+          description: 'Katherina Damisch verbindet Vermittlung und Konzeptarbeit mit praktischer Umsetzung. Sie entwickelt Formate, strukturiert Prozesse und greift auch selbst zu Werkzeug und Material, wenn Maßnahmen der Biodiversität zugutekommen.',
           image: 'team',
         },
         {

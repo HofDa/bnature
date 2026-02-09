@@ -97,6 +97,20 @@ const collaboratorImages = {
         (el) => el instanceof HTMLElement && !el.hasAttribute('disabled')
       );
 
+    const scrollToHashTarget = (hash) => {
+      if (!hash || !hash.startsWith('#') || hash.length < 2) return;
+      const target = document.querySelector(hash);
+      if (!(target instanceof HTMLElement)) return;
+
+      const header = document.querySelector('[data-smart-header]');
+      const headerHeight = header instanceof HTMLElement ? header.getBoundingClientRect().height : 0;
+      const y = target.getBoundingClientRect().top + window.scrollY - headerHeight - 12;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      window.scrollTo({ top: Math.max(0, y), behavior: reduceMotion ? 'auto' : 'smooth' });
+      window.history.replaceState(null, '', hash);
+    };
+
       const openMenu = () => {
         menu.classList.remove('max-h-0', '-translate-y-1', 'opacity-0', 'pointer-events-none');
         menu.classList.add('max-h-80', 'translate-y-0', 'opacity-100', 'pointer-events-auto', 'pb-3');
@@ -131,8 +145,14 @@ const collaboratorImages = {
       }
     });
 
-    menu.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => closeMenu(false));
+    menu.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const hash = link.getAttribute('href');
+        if (!hash) return;
+        event.preventDefault();
+        closeMenu(false);
+        window.setTimeout(() => scrollToHashTarget(hash), 200);
+      });
     });
 
     document.addEventListener('keydown', (event) => {

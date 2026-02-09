@@ -33,9 +33,17 @@
 }
 
 @layer base {
+  :root {
+    --anchor-offset: 5.75rem;
+  }
+
   html {
     font-family: Inter, ui-sans-serif, system-ui, sans-serif;
     scroll-behavior: smooth;
+  }
+
+  section[id] {
+    scroll-margin-top: var(--anchor-offset);
   }
 
   body {
@@ -61,6 +69,24 @@
     outline: 2px solid var(--color-primary-500);
     outline-offset: 2px;
     border-radius: 0.5rem;
+  }
+}
+
+@media (max-width: 479px) {
+  :root {
+    --anchor-offset: 5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --anchor-offset: 5.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --anchor-offset: 6.25rem;
   }
 }
 

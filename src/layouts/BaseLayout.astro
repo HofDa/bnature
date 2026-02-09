@@ -22,9 +22,9 @@ const {
 } = Astro.props;
 
 const baseUrl = Astro.site ?? new URL('https://example.com');
+const basePath = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const addBase = (path: string) => {
-  const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
-  return `${base}${path.replace(/^\/+/, '')}`;
+  return `${basePath}${path.replace(/^\/+/, '')}`;
 };
 const canonical = new URL(addBase(canonicalPath), baseUrl).toString();
 const altDe = new URL(addBase(alternateDePath), baseUrl).toString();
@@ -36,6 +36,8 @@ const ogImage = ogImagePath ? new URL(ogImagePath, baseUrl).toString() : undefin
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href={`${basePath}favicon.svg`} />
+    <link rel="shortcut icon" href={`${basePath}favicon.svg`} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

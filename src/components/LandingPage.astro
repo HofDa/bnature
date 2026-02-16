@@ -1,6 +1,10 @@
 ---
-import heroImg from '../assets/hero.jpg';
-import geeksImg from '../assets/geeks1.png';
+import heroImg from '../assets/hero.webp';
+import aboutImg from '../assets/Hummel_Raier Moos_Alois.webp';
+import nilsBertolImg from '../assets/nils_bertol.webp';
+import paulLutherImg from '../assets/pau_luther.webp';
+import johannesRuedlImg from '../assets/johannes_ruedl.webp';
+import davidHoferImg from '../assets/david_hofer.webp';
 import bnatureLogo from '../assets/bnature-logo.svg';
 import type { Lang } from '../data/content';
 import { content } from '../data/content';
@@ -24,9 +28,10 @@ const t = content[lang];
 const otherLang = lang === 'de' ? 'it' : 'de';
 const otherLangLabel = otherLang.toUpperCase();
 const collaboratorImages = {
-  field: heroImg,
-  team: geeksImg,
-  workshop: geeksImg,
+  nils_bertol: nilsBertolImg,
+  pau_luther: paulLutherImg,
+  johannes_ruedl: johannesRuedlImg,
+  david_hofer: davidHoferImg,
 } as const;
 ---
 <main class="font-body text-bark-700">
@@ -42,7 +47,7 @@ const collaboratorImages = {
 
   <PartnersSection partners={t.partners} />
 
-  <AboutSection about={t.about} geeksImg={geeksImg} />
+  <AboutSection about={t.about} aboutImg={aboutImg} />
 
   <CollaboratorsSection collaborators={t.collaborators} collaboratorImages={collaboratorImages} />
 

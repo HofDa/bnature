@@ -43,10 +43,6 @@ const withBase = (path: string) => {
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="bot-field" />
         <div>
-          <label for="name" class="text-sm font-medium text-bark-700">Name</label>
-          <input id="name" name="name" required class="mt-1 w-full rounded-xl border border-primary-200/50 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500/30" />
-        </div>
-        <div>
           <label for="email" class="text-sm font-medium text-bark-700">E-Mail</label>
           <input id="email" type="email" name="email" required class="mt-1 w-full rounded-xl border border-primary-200/50 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500/30" />
         </div>
@@ -54,7 +50,7 @@ const withBase = (path: string) => {
           <label for="message" class="text-sm font-medium text-bark-700">Nachricht</label>
           <textarea id="message" name="message" rows="4" required class="mt-1 w-full rounded-xl border border-primary-200/50 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500/30"></textarea>
         </div>
-        <p class="text-xs text-bark-700/60">Mit dem Senden stimmst du der Verarbeitung deiner Angaben zur Kontaktaufnahme zu.</p>
+        <p class="text-xs text-bark-700/60">Mit dem Senden stimmst du der Verarbeitung deiner Angaben (E-Mail und Nachricht) zur Kontaktaufnahme zu.</p>
         <p class="hidden text-sm text-primary-700" data-contact-success role="status" aria-live="polite">{contact.successMessage}</p>
         <p class="hidden text-sm text-red-700 dark:text-red-300" data-contact-error role="alert" aria-live="assertive">{contact.errorMessage}</p>
         <div class="flex flex-wrap gap-3">

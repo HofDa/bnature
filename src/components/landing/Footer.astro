@@ -11,14 +11,46 @@ const withBase = (path: string) => {
   const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
   return `${base}${path.replace(/^\/+/, '')}`;
 };
+
+const bcoopInfoText =
+  lang === 'de'
+    ? 'b*nature ist ein Projekt der Bürger:innengenossenschaft b*coop (KDS).'
+    : 'b*nature e un progetto della cooperativa di comunita b*coop (KDS).';
+
+const bcoopLegalLinks =
+  lang === 'de'
+    ? {
+        impressum: 'https://bcoop.bz/de/impressum',
+        privacy: 'https://bcoop.bz/de/privacy',
+        cookies: 'https://bcoop.bz/de/cookies',
+        transparency: 'https://bcoop.bz/de/transparency',
+      }
+    : {
+        impressum: 'https://bcoop.bz/it/impressum',
+        privacy: 'https://bcoop.bz/it/privacy',
+        cookies: 'https://bcoop.bz/it/cookies',
+        transparency: 'https://bcoop.bz/it/transparency',
+      };
 ---
 <footer class="border-t bg-white">
-  <div class="container flex flex-col items-center justify-between gap-4 py-8 md:flex-row">
-    <p class="text-sm text-bark-700/70">&copy; {new Date().getFullYear()} b*nature - {footer.rights}</p>
-    <nav class="flex gap-4 text-sm text-bark-700/80">
-      <a href={withBase(`/${lang}/impressum`)} class="hover:text-bark-900 hover:no-underline">{footer.links.impressum}</a>
-      <a href={withBase(`/${lang}/privacy`)} class="hover:text-bark-900 hover:no-underline">{footer.links.privacy}</a>
-      <a href={withBase(`/${lang}/cookies`)} class="hover:text-bark-900 hover:no-underline">{footer.links.cookies}</a>
-    </nav>
+  <div class="container py-8">
+    <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
+      <p class="text-sm text-bark-700/70">&copy; {new Date().getFullYear()} b*nature - {footer.rights}</p>
+      <nav class="flex gap-4 text-sm text-bark-700/80">
+        <a href={withBase(`/${lang}/impressum`)} class="hover:text-bark-900 hover:no-underline">{footer.links.impressum}</a>
+        <a href={withBase(`/${lang}/privacy`)} class="hover:text-bark-900 hover:no-underline">{footer.links.privacy}</a>
+        <a href={withBase(`/${lang}/cookies`)} class="hover:text-bark-900 hover:no-underline">{footer.links.cookies}</a>
+      </nav>
+    </div>
+
+    <div class="mt-4 border-t border-primary-100 pt-4 text-center">
+      <p class="text-sm text-bark-700/80">{bcoopInfoText}</p>
+      <nav class="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-bark-700/80">
+        <a href={bcoopLegalLinks.impressum} target="_blank" rel="noopener noreferrer" class="hover:text-bark-900 hover:no-underline">B*COOP Impressum</a>
+        <a href={bcoopLegalLinks.privacy} target="_blank" rel="noopener noreferrer" class="hover:text-bark-900 hover:no-underline">B*COOP Privacy</a>
+        <a href={bcoopLegalLinks.cookies} target="_blank" rel="noopener noreferrer" class="hover:text-bark-900 hover:no-underline">B*COOP Cookies</a>
+        <a href={bcoopLegalLinks.transparency} target="_blank" rel="noopener noreferrer" class="hover:text-bark-900 hover:no-underline">B*COOP Transparency</a>
+      </nav>
+    </div>
   </div>
 </footer>

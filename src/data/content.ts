@@ -1,7 +1,7 @@
 export type Lang = 'de' | 'it';
 
 type Faq = { q: string; a: string };
-type Collaborator = { name: string; description: string; image: 'field' | 'team' | 'workshop' };
+type Collaborator = { name: string; description: string; image: 'nils_bertol' | 'pau_luther' | 'johannes_ruedl' | 'david_hofer' };
 type Partner = { name: string; url?: string; logo?: string };
 
 export type PageContent = {
@@ -117,37 +117,22 @@ export const content: Record<Lang, PageContent> = {
         {
           name: 'Nils Bertol',
           description: 'Nils Bertol ist Botaniker mit Schwerpunkt auf floristischen Erhebungen und Vegetationsanalyse. Er koordiniert Feldarbeiten und verbindet botanische Expertise mit effizienter Projektplanung.',
-          image: 'field',
-        },
-        {
-          name: 'Marco Zema',
-          description: 'Marco Zema ist Naturgärtner und verantwortlich für die praktische Umsetzung naturnaher Gestaltungsmaßnahmen. Ob mit Holz, Pflanzen oder Handwerk – er sorgt dafür, dass Konzepte im Gelände funktional und ökologisch sinnvoll umgesetzt werden.',
-          image: 'workshop',
-        },
-        {
-          name: 'Katherina Damisch',
-          description: 'Katherina Damisch verbindet Vermittlung und Konzeptarbeit mit praktischer Umsetzung. Sie entwickelt Formate, strukturiert Prozesse und greift auch selbst zu Werkzeug und Material, wenn Maßnahmen der Biodiversität zugutekommen.',
-          image: 'team',
+          image: 'nils_bertol',
         },
         {
           name: 'Paul Luther',
           description: 'Paul Luther bringt langjährige gärtnerische Erfahrung mit und verbindet gestalterisches Gespür mit ökologischer Verantwortung. Sein Fokus liegt auf harmonischen Lösungen, die Biodiversität fördern und langfristig funktionieren.',
-          image: 'team',
-        },
-        {
-          name: 'Birgith Unterthurner',
-          description: 'Birgith Unterturner arbeitet an der Schnittstelle von Wildtierökologie, Vermittlung und Illustration. Mit wissenschaftlicher Genauigkeit und gestalterischem Feingefühl übersetzt sie komplexe Inhalte in zugängliche Bilder und Formate.',
-          image: 'team',
+          image: 'pau_luther',
         },
         {
           name: 'Johannes Ruedl',
           description: 'Johannes Ruedl verbindet Didaktik und Design mit einer breiten Naturkenntnis. Ob Wald oder Wiese, Berge oder Geologie – er entwickelt anschauliche Vermittlungsformate und bringt komplexe Inhalte verständlich auf den Punkt.',
-          image: 'team',
+          image: 'johannes_ruedl',
         },
         {
           name: 'David Hofer',
           description: 'David Hofer arbeitet an der Schnittstelle von Biodiversitätsforschung und IT. Seine Schwerpunkte liegen auf Wildbienen, Tagfaltern und Pilzen sowie auf der digitalen Aufbereitung, Analyse und Visualisierung ökologischer Daten.',
-          image: 'team',
+          image: 'david_hofer',
         },
       ],
     },
@@ -246,23 +231,32 @@ export const content: Record<Lang, PageContent> = {
       cta: 'Richiedi colloquio',
     },
     collaborators: {
-      heading: 'Alcuni dei nostri collaboratori',
-      lead: 'Persone e organizzazioni con cui lavoriamo su monitoraggi, educazione ambientale e progettazione.',
+      heading: 'Il nostro team',
+      lead: 'Fondato sulla scienza. Realizzato con esperienza pratica.',
       items: [
         {
-          name: 'Partner dei parchi naturali',
-          description: 'Rilievi sul campo e progettazione di monitoraggi per obiettivi di biodiversita a lungo termine.',
-          image: 'field',
+          name: 'Nils Bertol',
+          description:
+            'Nils Bertol e botanico con specializzazione in rilievi floristici e analisi della vegetazione. Coordina i lavori sul campo e unisce competenza botanica e pianificazione efficiente dei progetti.',
+          image: 'nils_bertol',
         },
         {
-          name: 'Partner educativi',
-          description: 'Collaborazioni con scuole e centri formativi per percorsi ambientali concreti.',
-          image: 'workshop',
+          name: 'Paul Luther',
+          description:
+            'Paul Luther porta con se una lunga esperienza nel giardinaggio e combina sensibilita progettuale e responsabilita ecologica. Il suo focus e su soluzioni armoniche che promuovono la biodiversita e funzionano nel lungo periodo.',
+          image: 'pau_luther',
         },
         {
-          name: 'Progetti comunali',
-          description: 'Supporto ai comuni per interventi naturalistici e verifica dei risultati.',
-          image: 'team',
+          name: 'Johannes Ruedl',
+          description:
+            'Johannes Ruedl unisce didattica e design a una vasta conoscenza della natura. Che si tratti di bosco o prato, montagna o geologia, sviluppa formati di divulgazione chiari e rende comprensibili anche i contenuti complessi.',
+          image: 'johannes_ruedl',
+        },
+        {
+          name: 'David Hofer',
+          description:
+            'David Hofer lavora all intersezione tra ricerca sulla biodiversita e IT. I suoi ambiti principali sono api selvatiche, farfalle diurne e funghi, oltre alla preparazione digitale, analisi e visualizzazione di dati ecologici.',
+          image: 'david_hofer',
         },
       ],
     },

@@ -1,7 +1,11 @@
 export type Lang = 'de' | 'it';
 
 type Faq = { q: string; a: string };
-type Collaborator = { name: string; description: string; image: 'nils_bertol' | 'pau_luther' | 'johannes_ruedl' | 'david_hofer' };
+type Collaborator = {
+  name: string;
+  description: string;
+  image: 'nils_bertol' | 'pau_luther' | 'johannes_ruedl' | 'david_hofer' | 'birgith_unterthurner';
+};
 type Partner = { name: string; url?: string; logo?: string };
 
 export type PageContent = {
@@ -125,15 +129,21 @@ export const content: Record<Lang, PageContent> = {
           image: 'pau_luther',
         },
         {
+          name: 'Birgith Unterthurner',
+          description: 'Birgith Unterturner arbeitet an der Schnittstelle von Wildtierökologie, Vermittlung und Illustration. Mit wissenschaftlicher Genauigkeit und gestalterischem Feingefühl übersetzt sie komplexe Inhalte in zugängliche Bilder und Formate.',
+          image: 'birgith_unterthurner',
+        },
+        {
           name: 'Johannes Ruedl',
           description: 'Johannes Ruedl verbindet Didaktik und Design mit einer breiten Naturkenntnis. Ob Wald oder Wiese, Berge oder Geologie – er entwickelt anschauliche Vermittlungsformate und bringt komplexe Inhalte verständlich auf den Punkt.',
           image: 'johannes_ruedl',
         },
         {
           name: 'David Hofer',
-          description: 'David Hofer arbeitet an der Schnittstelle von Biodiversitätsforschung und IT. Seine Schwerpunkte liegen auf Wildbienen, Tagfaltern und Pilzen sowie auf der digitalen Aufbereitung, Analyse und Visualisierung ökologischer Daten.',
+          description: 'David Hofer arbeitet zu Wildbienen, Tagfaltern und Pilzen im Kontext der Biodiversität. Er verantwortet Datenerhebung und -auswertung und sorgt für eine verlässliche digitale Struktur im Hintergrund der Projekte.',
           image: 'david_hofer',
         },
+        
       ],
     },
     faq: {
@@ -257,6 +267,12 @@ export const content: Record<Lang, PageContent> = {
           description:
             'David Hofer lavora all intersezione tra ricerca sulla biodiversita e IT. I suoi ambiti principali sono api selvatiche, farfalle diurne e funghi, oltre alla preparazione digitale, analisi e visualizzazione di dati ecologici.',
           image: 'david_hofer',
+        },
+        {
+          name: 'Birgith Unterthurner',
+          description:
+            'Birgith Unterthurner porta una solida esperienza nel lavoro su progetti legati alla natura e supporta b*nature nella realizzazione di misure pratiche con impatto ecologico.',
+          image: 'birgith_unterthurner',
         },
       ],
     },

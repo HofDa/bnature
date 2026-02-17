@@ -244,66 +244,70 @@ const collaboratorImages = {
       const track = root.querySelector('[data-collab-track]');
       const prev = root.querySelector('[data-collab-prev]');
       const next = root.querySelector('[data-collab-next]');
-      const dots = Array.from(root.querySelectorAll('[data-collab-dot]'));
       const status = root.querySelector('[data-collab-status]');
+      const progress = root.querySelector('[data-collab-progress]');
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const scrollBehavior = reduceMotion ? 'auto' : 'smooth';
+      const slides = track instanceof HTMLElement ? Array.from(track.children).filter((child) => child instanceof HTMLElement) : [];
+      const slideCount = slides.length;
 
       if (!(track instanceof HTMLElement) || !(prev instanceof HTMLButtonElement) || !(next instanceof HTMLButtonElement)) return;
       if (!(status instanceof HTMLElement)) return;
+      if (!(progress instanceof HTMLElement)) return;
 
-      const getStep = () => {
-        const first = track.firstElementChild;
-        if (!(first instanceof HTMLElement)) return track.clientWidth * 0.9;
-        const styles = window.getComputedStyle(track);
-        const gap = Number.parseFloat(styles.columnGap || styles.gap || '0');
-        return first.getBoundingClientRect().width + gap;
+      const getMaxScroll = () => Math.max(0, track.scrollWidth - track.clientWidth);
+      const getSnapPoints = () => {
+        const maxScroll = getMaxScroll();
+        if (!slideCount) return [0];
+        return slides.map((slide, index) => {
+          if (index === 0) return 0;
+          if (index === slideCount - 1) return maxScroll;
+          return Math.max(0, Math.min(maxScroll, slide.offsetLeft));
+        });
       };
 
       const getIndex = () => {
-        const step = getStep();
-        if (step <= 0) return 0;
-        const max = Math.max(dots.length - 1, 0);
-        return Math.max(0, Math.min(max, Math.round(track.scrollLeft / step)));
+        if (!slideCount) return 0;
+        const snapPoints = getSnapPoints();
+        const current = track.scrollLeft;
+        let closestIndex = 0;
+        let closestDistance = Number.POSITIVE_INFINITY;
+        snapPoints.forEach((point, index) => {
+          const distance = Math.abs(point - current);
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestIndex = index;
+          }
+        });
+        return closestIndex;
       };
 
       const goToIndex = (index) => {
-        const max = Math.max(dots.length - 1, 0);
+        const max = Math.max(slideCount - 1, 0);
         const clamped = Math.max(0, Math.min(max, index));
-        track.scrollTo({ left: getStep() * clamped, behavior: scrollBehavior });
+        const snapPoints = getSnapPoints();
+        const left = snapPoints[clamped] ?? 0;
+        track.scrollTo({ left, behavior: scrollBehavior });
       };
 
       prev.addEventListener('click', () => {
-        track.scrollBy({ left: -getStep(), behavior: scrollBehavior });
+        goToIndex(getIndex() - 1);
       });
 
       next.addEventListener('click', () => {
-        track.scrollBy({ left: getStep(), behavior: scrollBehavior });
+        goToIndex(getIndex() + 1);
       });
 
-      const setActiveDot = () => {
-        if (!dots.length) return;
+      const setProgress = () => {
+        if (!slideCount) return;
         const index = getIndex();
-        status.textContent = `Slide ${index + 1} of ${dots.length}`;
+        status.textContent = `Slide ${index + 1} of ${slideCount}`;
+        const maxScroll = getMaxScroll();
+        const ratio = maxScroll > 0 ? Math.min(1, track.scrollLeft / maxScroll) : 1;
+        progress.style.width = `${Math.max(0, Math.min(1, ratio)) * 100}%`;
         prev.disabled = index === 0;
-        next.disabled = index === dots.length - 1;
-        dots.forEach((dot, i) => {
-          if (!(dot instanceof HTMLButtonElement)) return;
-          dot.dataset.active = i === index ? 'true' : 'false';
-          dot.setAttribute('aria-pressed', i === index ? 'true' : 'false');
-          dot.setAttribute('aria-current', i === index ? 'true' : 'false');
-          const indicator = dot.querySelector('[data-collab-dot-indicator]');
-          if (indicator instanceof HTMLElement) indicator.dataset.active = i === index ? 'true' : 'false';
-        });
+        next.disabled = index === slideCount - 1;
       };
-
-      dots.forEach((dot) => {
-        if (!(dot instanceof HTMLButtonElement)) return;
-        dot.addEventListener('click', () => {
-          const index = Number(dot.dataset.collabDot || '0');
-          goToIndex(index);
-        });
-      });
 
       track.addEventListener('keydown', (event) => {
         if (!(event instanceof KeyboardEvent)) return;
@@ -319,12 +323,12 @@ const collaboratorImages = {
           goToIndex(0);
         } else if (event.key === 'End') {
           event.preventDefault();
-          goToIndex(dots.length - 1);
+          goToIndex(slideCount - 1);
         }
       });
 
-      track.addEventListener('scroll', setActiveDot, { passive: true });
-      setActiveDot();
+      track.addEventListener('scroll', setProgress, { passive: true });
+      setProgress();
     });
   };
 

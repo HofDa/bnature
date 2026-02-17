@@ -31,6 +31,7 @@ const { collaborators, collaboratorImages } = Astro.props;
               widths={[320, 480, 640]}
               sizes="(max-width: 639px) 78vw, (max-width: 1023px) 45vw, 30vw"
               class="aspect-[3/4] w-full object-cover object-center"
+              style={item.image === 'nils_bertol' ? 'object-position: 58% center;' : undefined}
               loading="lazy"
             />
             <div class="p-6">

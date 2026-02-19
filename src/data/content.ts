@@ -4,7 +4,7 @@ type Faq = { q: string; a: string };
 type Collaborator = {
   name: string;
   description: string;
-  image: 'nils_bertol' | 'pau_luther' | 'johannes_ruedl' | 'david_hofer' | 'birgith_unterthurner';
+  image: 'nils_bertol' | 'katherina_damisch' | 'pau_luther' | 'johannes_ruedl' | 'david_hofer' | 'birgith_unterthurner';
 };
 type Partner = { name: string; url?: string; logo?: string };
 
@@ -122,6 +122,11 @@ export const content: Record<Lang, PageContent> = {
           name: 'Nils Bertol',
           description: 'Nils Bertol ist Botaniker mit Schwerpunkt auf floristischen Erhebungen und Vegetationsanalyse. Er koordiniert Feldarbeiten und verbindet botanische Expertise mit effizienter Projektplanung.',
           image: 'nils_bertol',
+        },
+        {
+          name: 'Katherina Damisch',
+          description: 'Damisch ist Zoologin, Bergwanderführerin und Naturpädagogin mit Schwerpunkten in Feldarbeit, Landschaftspflege und Biodiversitätsmonitoring. Sie verbindet praktische Naturschutzarbeit mit wissenschaftlicher Expertise und vermittelt auch komplexe Inhalte klar und nachvollziehbar.',
+          image: 'katherina_damisch',
         },
         {
           name: 'Paul Luther',

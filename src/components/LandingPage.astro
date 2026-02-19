@@ -2,6 +2,7 @@
 import heroImg from '../assets/hero.webp';
 import aboutImg from '../assets/Hummel_Raier Moos_Alois.webp';
 import nilsBertolImg from '../assets/nils_bertol.webp';
+import katherinaDamischImg from '../assets/katherina_damisch.webp';
 import paulLutherImg from '../assets/pau_luther.webp';
 import johannesRuedlImg from '../assets/johannes_ruedl.webp';
 import davidHoferImg from '../assets/david_hofer.webp';
@@ -30,6 +31,7 @@ const otherLang = lang === 'de' ? 'it' : 'de';
 const otherLangLabel = otherLang.toUpperCase();
 const collaboratorImages = {
   nils_bertol: nilsBertolImg,
+  katherina_damisch: katherinaDamischImg,
   pau_luther: paulLutherImg,
   johannes_ruedl: johannesRuedlImg,
   david_hofer: davidHoferImg,
@@ -282,25 +284,29 @@ const collaboratorImages = {
         return closestIndex;
       };
 
+      let currentIndex = getIndex();
+
       const goToIndex = (index) => {
         const max = Math.max(slideCount - 1, 0);
         const clamped = Math.max(0, Math.min(max, index));
+        currentIndex = clamped;
         const snapPoints = getSnapPoints();
         const left = snapPoints[clamped] ?? 0;
         track.scrollTo({ left, behavior: scrollBehavior });
       };
 
       prev.addEventListener('click', () => {
-        goToIndex(getIndex() - 1);
+        goToIndex(currentIndex - 1);
       });
 
       next.addEventListener('click', () => {
-        goToIndex(getIndex() + 1);
+        goToIndex(currentIndex + 1);
       });
 
       const setProgress = () => {
         if (!slideCount) return;
-        const index = getIndex();
+        currentIndex = getIndex();
+        const index = currentIndex;
         status.textContent = `Slide ${index + 1} of ${slideCount}`;
         const maxScroll = getMaxScroll();
         const ratio = maxScroll > 0 ? Math.min(1, track.scrollLeft / maxScroll) : 1;
@@ -311,7 +317,7 @@ const collaboratorImages = {
 
       track.addEventListener('keydown', (event) => {
         if (!(event instanceof KeyboardEvent)) return;
-        const current = getIndex();
+        const current = currentIndex;
         if (event.key === 'ArrowRight') {
           event.preventDefault();
           goToIndex(current + 1);

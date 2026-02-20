@@ -125,7 +125,7 @@ export const content: Record<Lang, PageContent> = {
         },
         {
           name: 'Katherina Damisch',
-          description: 'Damisch ist Zoologin, Bergwanderführerin und Naturpädagogin mit Schwerpunkten in Feldarbeit, Landschaftspflege und Biodiversitätsmonitoring. Sie verbindet praktische Naturschutzarbeit mit wissenschaftlicher Expertise und vermittelt auch komplexe Inhalte klar und nachvollziehbar.',
+          description: 'Katherina Damisch ist Zoologin, Bergwanderführerin und Naturpädagogin mit Schwerpunkten in Feldarbeit, Landschaftspflege und Biodiversitätsmonitoring. Sie verbindet praktische Naturschutzarbeit mit wissenschaftlicher Expertise und vermittelt auch komplexe Inhalte klar und nachvollziehbar.',
           image: 'katherina_damisch',
         },
         {

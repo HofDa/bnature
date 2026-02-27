@@ -100,7 +100,7 @@ export const content: Record<Lang, PageContent> = {
     },
     about: {
       heading: 'Warum b*nature?',
-      text: 'Wir verbinden okologische Expertise mit didaktischer Erfahrung und klarer Kommunikation.',
+      text: 'Wir verbinden ökologische Expertise mit didaktischer Erfahrung und klarer Kommunikation.',
       bullets: [
         'Transparenter Ablauf von Erstgespräch bis Monitoring',
         'Zielgruppengerecht fur Gemeinden, Hotels, Schulen und Betriebe',

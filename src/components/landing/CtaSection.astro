@@ -6,7 +6,7 @@ interface Props {
   secondaryLabel: string;
 }
 
-const { cta, secondaryLabel } = Astro.props;
+const { cta, secondaryLabel } = Astro.props as Props;
 ---
 <section class="section bg-white">
   <div class="section-container" data-reveal>

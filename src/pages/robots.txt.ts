@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 
-const base = 'https://example.com';
+const base = 'https://bnature.bz';
 
 export const GET: APIRoute = ({ site }) => {
   const origin = (site ?? new URL(base)).toString().replace(/\/$/, '');

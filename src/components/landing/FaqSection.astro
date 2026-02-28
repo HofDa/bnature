@@ -6,7 +6,7 @@ interface Props {
   faq: PageContent['faq'];
 }
 
-const { faq } = Astro.props;
+const { faq } = Astro.props as Props;
 ---
 <section id="faq" class="section bg-white">
   <div class="section-container" data-reveal>

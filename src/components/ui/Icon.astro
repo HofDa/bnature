@@ -16,7 +16,7 @@ interface Props {
   class?: string;
 }
 
-const { name, class: className = 'h-5 w-5' } = Astro.props;
+const { name, class: className = 'h-5 w-5' } = Astro.props as Props;
 ---
 {
   name === 'leaf' && (

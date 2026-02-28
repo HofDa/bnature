@@ -9,7 +9,7 @@ interface Props {
   heroImg: ImageMetadata;
 }
 
-const { hero, heroImg } = Astro.props;
+const { hero, heroImg } = Astro.props as Props;
 ---
 <section id="home" class="section bg-sand-100" tabindex="-1">
   <div class="section-container grid items-center gap-10 lg:grid-cols-2" data-reveal>

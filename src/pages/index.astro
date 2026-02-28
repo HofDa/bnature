@@ -13,29 +13,31 @@ const itUrl = withBase('/it');
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>b*nature</title>
     <meta name="robots" content="noindex,follow" />
-    <noscript>
-      <meta http-equiv="refresh" content={`0; url=${deUrl}`} />
-    </noscript>
-  </head>
-  <body>
-    <p>Weiterleitung ...</p>
     <script is:inline>
       (() => {
         const currentPath = window.location.pathname;
-        const base = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+        const normalizedPath = currentPath.replace(/\/index\.html$/, '/');
+        const base = normalizedPath.endsWith('/') ? normalizedPath : `${normalizedPath}/`;
         const withBase = (path) => `${base}${String(path || '').replace(/^\/+/, '')}`;
         const supported = ['de', 'it'];
         const langs = Array.isArray(navigator.languages) && navigator.languages.length
           ? navigator.languages
           : [navigator.language || 'de'];
         const normalized = langs
-          .map((l) => String(l || '').toLowerCase())
+          .map((lang) => String(lang || '').toLowerCase())
           .filter(Boolean);
-        const match = normalized.find((l) => supported.includes(l.split('-')[0]));
+        const match = normalized.find((lang) => supported.includes(lang.split('-')[0]));
         const target = match ? withBase(`/${match.split('-')[0]}`) : withBase('/de');
         window.location.replace(target);
       })();
     </script>
-    <p><a href={deUrl}>Deutsch</a> | <a href={itUrl}>Italiano</a></p>
+    <noscript>
+      <meta http-equiv="refresh" content={`0; url=${deUrl}`} />
+    </noscript>
+  </head>
+  <body>
+    <noscript>
+      <p><a href={deUrl}>Deutsch</a> | <a href={itUrl}>Italiano</a></p>
+    </noscript>
   </body>
 </html>

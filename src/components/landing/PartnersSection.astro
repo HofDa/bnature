@@ -5,7 +5,7 @@ interface Props {
   partners: PageContent['partners'];
 }
 
-const { partners } = Astro.props;
+const { partners } = Astro.props as Props;
 ---
 <section id="partners" class="section bg-sand-100">
   <div class="section-container text-center" data-reveal>

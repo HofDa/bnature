@@ -13,7 +13,6 @@ import { content } from '../data/content';
 import Header from './landing/Header.astro';
 import HeroSection from './landing/HeroSection.astro';
 import ServicesSection from './landing/ServicesSection.astro';
-import PartnersSection from './landing/PartnersSection.astro';
 import AboutSection from './landing/AboutSection.astro';
 import CollaboratorsSection from './landing/CollaboratorsSection.astro';
 import FaqSection from './landing/FaqSection.astro';
@@ -25,7 +24,7 @@ interface Props {
   lang: Lang;
 }
 
-const { lang } = Astro.props;
+const { lang } = Astro.props as Props;
 const t = content[lang];
 const otherLang = lang === 'de' ? 'it' : 'de';
 const otherLangLabel = otherLang.toUpperCase();
@@ -48,8 +47,6 @@ const collaboratorImages = {
   <HeroSection hero={t.hero} heroImg={heroImg} />
 
   <ServicesSection services={t.services} />
-
-  
 
   <AboutSection about={t.about} aboutImg={aboutImg} />
 

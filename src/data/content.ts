@@ -43,6 +43,9 @@ export type PageContent = {
     lead: string;
     button: string;
     mailLabel: string;
+    emailLabel: string;
+    messageLabel: string;
+    privacyNotice: string;
     location: string;
     successMessage: string;
     errorMessage: string;
@@ -164,6 +167,9 @@ export const content: Record<Lang, PageContent> = {
       lead: 'Teilen Sie uns kurz mit, wobei wir unterstützen dürfen.',
       button: 'Anfrage senden',
       mailLabel: 'Direkt per Mail',
+      emailLabel: 'E-Mail',
+      messageLabel: 'Nachricht',
+      privacyNotice: 'Mit dem Senden stimmst du der Verarbeitung deiner Angaben (E-Mail und Nachricht) zur Kontaktaufnahme zu.',
       location: 'Südtirol - Italien',
       successMessage: 'Danke! Ihre Anfrage wurde gesendet. Wir melden uns zeitnah.',
       errorMessage: 'Bitte prüfen Sie die Eingaben im Formular.',
@@ -294,6 +300,9 @@ export const content: Record<Lang, PageContent> = {
       lead: 'Dicci brevemente come possiamo supportarti.',
       button: 'Invia richiesta',
       mailLabel: 'Direttamente via mail',
+      emailLabel: 'E-mail',
+      messageLabel: 'Messaggio',
+      privacyNotice: 'Con l invio acconsenti al trattamento dei tuoi dati (e-mail e messaggio) per ricontattarti.',
       location: 'Alto Adige - Italia',
       successMessage: 'Grazie! La tua richiesta e stata inviata. Ti contatteremo presto.',
       errorMessage: 'Controlla i campi del modulo e riprova.',

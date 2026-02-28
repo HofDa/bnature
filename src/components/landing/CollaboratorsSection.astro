@@ -9,7 +9,7 @@ interface Props {
   collaboratorImages: Record<'nils_bertol' | 'katherina_damisch' | 'pau_luther' | 'johannes_ruedl' | 'david_hofer' | 'birgith_unterthurner', ImageMetadata>;
 }
 
-const { collaborators, collaboratorImages } = Astro.props;
+const { collaborators, collaboratorImages } = Astro.props as Props;
 ---
 <section id="collaborators" class="section bg-sand-100">
   <div class="section-container" data-reveal>

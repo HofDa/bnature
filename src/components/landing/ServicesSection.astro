@@ -6,7 +6,7 @@ interface Props {
   services: PageContent['services'];
 }
 
-const { services } = Astro.props;
+const { services } = Astro.props as Props;
 ---
 <section id="services" class="section bg-white">
   <div class="section-container" data-reveal>

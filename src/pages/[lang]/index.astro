@@ -5,6 +5,8 @@ import { content, type Lang } from '../../data/content';
 import heroImg from '../../assets/hero.webp';
 import '../../styles/globals.css';
 
+const baseUrl = Astro.site ?? new URL('https://bnature.bz');
+
 export const getStaticPaths = () => {
   const langs: Lang[] = ['de', 'it'];
   return langs.map((lang) => ({ params: { lang } }));
@@ -29,7 +31,7 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'b*nature',
-  url: new URL(withBase(canonicalPath), Astro.site ?? new URL('https://example.com')).toString(),
+  url: new URL(withBase(canonicalPath), baseUrl).toString(),
   inLanguage: lang,
 };
 
@@ -37,9 +39,9 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'b*nature',
-  url: new URL(withBase(canonicalPath), Astro.site ?? new URL('https://example.com')).toString(),
+  url: new URL(withBase(canonicalPath), baseUrl).toString(),
   email: 'info@bnature.bz',
-  logo: new URL(heroImg.src, Astro.site ?? new URL('https://example.com')).toString(),
+  logo: new URL(heroImg.src, baseUrl).toString(),
 };
 
 const jsonLd = JSON.stringify([websiteSchema, organizationSchema]);

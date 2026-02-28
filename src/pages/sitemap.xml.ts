@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 
-const base = 'https://example.com';
+const base = 'https://bnature.bz';
 const langs = ['de', 'it'] as const;
 const legalSlugs = ['impressum', 'privacy', 'cookies'] as const;
 

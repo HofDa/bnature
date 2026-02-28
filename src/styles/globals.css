@@ -263,6 +263,23 @@
   opacity: 1;
 }
 
+.collaborator-image-nils {
+  object-position: 58% center;
+}
+
+.collaborator-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: color-mix(in srgb, var(--color-bark-500) 35%, transparent);
+  transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+.collaborator-dot.is-active {
+  width: 1.75rem;
+  background-color: var(--color-primary-700);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

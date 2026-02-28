@@ -30,8 +30,10 @@ const { collaborators, collaboratorImages } = Astro.props as Props;
               alt={item.name}
               widths={[320, 480, 640]}
               sizes="(max-width: 639px) 78vw, (max-width: 1023px) 45vw, 30vw"
-              class="aspect-[3/4] w-full object-cover object-center"
-              style={item.image === 'nils_bertol' ? 'object-position: 58% center;' : undefined}
+              class:list={[
+                'aspect-[3/4] w-full object-cover object-center',
+                item.image === 'nils_bertol' && 'collaborator-image-nils',
+              ]}
               loading="lazy"
             />
             <div class="p-6">
@@ -60,8 +62,10 @@ const { collaborators, collaboratorImages } = Astro.props as Props;
           <Icon name="chevron-down" class="h-4 w-4 -rotate-90" />
         </button>
       </div>
-      <div class="mx-auto mt-3 h-1.5 w-full max-w-40 overflow-hidden rounded-full bg-gray-200/80" aria-hidden="true">
-        <div class="h-full w-0 rounded-full bg-primary-700 transition-[width] duration-300" data-collab-progress></div>
+      <div class="mt-3 flex items-center justify-center gap-2" aria-hidden="true" data-collab-progress>
+        {collaborators.items.map((_item, index) => (
+          <span class:list={['collaborator-dot', index === 0 && 'is-active']}></span>
+        ))}
       </div>
     </div>
   </div>

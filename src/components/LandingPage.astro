@@ -7,7 +7,6 @@ import paulLutherImg from '../assets/pau_luther.webp';
 import johannesRuedlImg from '../assets/johannes_ruedl.webp';
 import davidHoferImg from '../assets/david_hofer.webp';
 import birgithUnterthurnerImg from '../assets/birgith_unterthurner.webp';
-import bnatureLogo from '../assets/bnature-logo.svg';
 import type { Lang } from '../data/content';
 import { content } from '../data/content';
 import Header from './landing/Header.astro';
@@ -28,6 +27,7 @@ const { lang } = Astro.props as Props;
 const t = content[lang];
 const otherLang = lang === 'de' ? 'it' : 'de';
 const otherLangLabel = otherLang.toUpperCase();
+const basePath = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const collaboratorImages = {
   nils_bertol: nilsBertolImg,
   katherina_damisch: katherinaDamischImg,
@@ -42,7 +42,7 @@ const collaboratorImages = {
     Skip to content
   </a>
 
-  <Header lang={lang} otherLang={otherLang} otherLangLabel={otherLangLabel} nav={t.nav} logoSrc={bnatureLogo.src} />
+  <Header lang={lang} otherLang={otherLang} otherLangLabel={otherLangLabel} nav={t.nav} logoSrc={`${basePath}bnature-logo.svg`} />
 
   <HeroSection hero={t.hero} heroImg={heroImg} />
 
@@ -305,9 +305,10 @@ const collaboratorImages = {
         currentIndex = getIndex();
         const index = currentIndex;
         status.textContent = `Slide ${index + 1} of ${slideCount}`;
-        const maxScroll = getMaxScroll();
-        const ratio = maxScroll > 0 ? Math.min(1, track.scrollLeft / maxScroll) : 1;
-        progress.style.width = `${Math.max(0, Math.min(1, ratio)) * 100}%`;
+        const dots = Array.from(progress.children).filter((child) => child instanceof HTMLElement);
+        dots.forEach((dot, dotIndex) => {
+          dot.classList.toggle('is-active', dotIndex === index);
+        });
         prev.disabled = index === 0;
         next.disabled = index === slideCount - 1;
       };

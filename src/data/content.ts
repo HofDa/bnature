@@ -262,6 +262,12 @@ export const content: Record<Lang, PageContent> = {
           image: 'nils_bertol',
         },
         {
+          name: 'Katherina Damisch',
+          description:
+            'Katherina Damisch e zoologa, accompagnatrice di media montagna ed educatrice ambientale. I suoi ambiti principali sono il lavoro sul campo, la cura del paesaggio e il monitoraggio della biodiversita. Unisce pratica concreta nella conservazione della natura, solida base scientifica e una comunicazione chiara anche dei contenuti complessi.',
+          image: 'katherina_damisch',
+        },
+        {
           name: 'Paul Luther',
           description:
             'Paul Luther porta con se una lunga esperienza nel giardinaggio e combina sensibilita progettuale e responsabilita ecologica. Il suo focus e su soluzioni armoniche che promuovono la biodiversita e funzionano nel lungo periodo.',

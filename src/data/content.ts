@@ -77,17 +77,17 @@ export const content: Record<Lang, PageContent> = {
       items: [
         {
           title: 'Erhebungen & Beratung',
-          text: 'Standardisierte Erfassungen, klare Befunde, belastbare Entscheidungen.',
+          text: 'Biodiversitätsmonitoring und ökologische Erhebungen mit botanischer und zoologischer Expertise. Standardisierte Vegetationsaufnahmen, Artenerfassung, Habitatbewertung und langfristige Erfolgskontrolle für fundierte Umweltentscheidungen.',
           bullets: ['Methodik nach Stand der Wissenschaft', 'Dokumentation und Ergebnisse', 'Langfristige Erfolgskontrolle'],
         },
         {
           title: 'Bildung für nachhaltige Entwicklung',
-          text: 'Workshops, Exkursionen und Formate, die Natur erlebbar machen.',
-          bullets: ['Didaktische Konzepte', 'Mehrsprachige Materialien', 'Outreach und Events'],
+          text: 'Workshops, Exkursionen und Bildungsformate, die ökologische Zusammenhänge erfahrbar machen. Wissenschaftlich fundierte Inhalte, innovative Vermittlungskonzepte und die Verbindung analoger und digitaler Lernformate.',
+          bullets: ['Didaktische Konzepte', 'Mehrsprachige Materialien', 'Veranstaltungen und innovative Vermittlung'],
         },
         {
           title: 'Naturnahe Gestaltung',
-          text: 'Planung und Begleitung fur artenreiche, standortgerechte Flächen.',
+          text: 'Planung und fachliche Begleitung artenreicher, standortgerechter Flächen. Entwicklung ökologisch fundierter Konzepte zur Förderung von Biodiversität, Strukturvielfalt und funktionalen Lebensräumen.',
           bullets: ['Pflanzkonzepte und Pflege', 'Habitat-Module', 'Biodiversitäts-Check'],
         },
       ],
@@ -155,11 +155,11 @@ export const content: Record<Lang, PageContent> = {
       ],
     },
     faq: {
-      heading: 'Häufige Fragen',
+      heading: 'Informationen im Überblick',
       items: [
-        { q: 'Wie läuft ein Erstgespräch ab?', a: '30-45 Minuten online oder vor Ort mit Zielklärung, Flächenbegutachtung und Zeitplan.' },
-        { q: 'Welche Ergebnisse bekomme ich?', a: 'Ein passendes Konzept mit klaren Empfehlungen und Prioritäten.' },
-        { q: 'Für wen ist b*nature geeignet?', a: 'Für Gemeinden, Schulen, Hotels, Betriebe, Institutionen und Privatpersonen.' },
+        { q: 'Wie läuft ein Erstgespräch ab?', a: 'Das Erstgespräch dauert in der Regel 30–45 Minuten und findet online oder vor Ort statt. Wir klären Zielsetzung, Rahmenbedingungen und vorhandene Flächenstrukturen. Bei Bedarf erfolgt eine erste Begutachtung vor Ort. Anschließend definieren wir einen realistischen Zeitplan sowie die nächsten fachlichen Schritte.' },
+        { q: 'Welche Ergebnisse bekomme ich?', a: 'Sie erhalten ein fachlich fundiertes Konzept mit klar priorisierten Empfehlungen. Je nach Projektumfang umfasst dies Bestandsanalyse, ökologische Bewertung, konkrete Maßnahmenvorschläge sowie Hinweise zur Umsetzung und langfristigen Entwicklung der Fläche.' },
+        { q: 'Für wen ist b*nature geeignet?', a: 'Unsere Leistungen richten sich an Gemeinden, Schulen, Hotels, landwirtschaftliche Betriebe, Unternehmen, Institutionen sowie engagierte Privatpersonen. Besonders geeignet für alle, die Biodiversität fachlich fundiert fördern und nachhaltige Maßnahmen strukturiert umsetzen möchten.' },
       ],
     },
     contact: {
@@ -191,18 +191,18 @@ export const content: Record<Lang, PageContent> = {
   },
   it: {
     langLabel: 'IT',
-    title: 'b*nature - Monitoraggi, educazione ambientale, progettazione naturalistica',
+    title: 'b*nature - Monitoraggio, educazione ambientale, progettazione naturalistica',
     description:
-      'b*nature unisce scienza e pratica: monitoraggi, educazione ambientale e progettazione di aree naturalistiche.',
+      'b*nature unisce scienza, pratica e storytelling: monitoraggio, educazione ambientale e progettazione di spazi naturali.',
     nav: { services: 'Servizi', about: 'Chi siamo', faq: 'FAQ', contact: 'Contatti' },
     hero: {
-      badge: 'bnature - monitoraggi, educazione, consulenza',
+      badge: 'b*nature - monitoraggio, educazione, consulenza',
       verified: 'verificato',
-      heading: 'Rendere misurabile la biodiversita. Progettare habitat a misura di natura.',
+      heading: 'Rendere misurabile la biodiversita. Progettare habitat in modo naturale.',
       subheading: 'La scienza incontra la pratica - per impatti ecologici misurabili.',
-      ctaPrimary: 'Richiedi colloquio',
+      ctaPrimary: 'Richiedi un progetto',
       ctaSecondary: 'Vedi i servizi',
-      expertise: 'Competenza di biologhe e biologi, ecologhe e ecologi, educatrici e educatori ambientali.',
+      expertise: 'Competenze di biologhe e biologi, ecologhe e ecologi, educatrici e educatori ambientali e giardinieri.',
     },
     services: {
       heading: 'I nostri servizi',
@@ -210,19 +210,19 @@ export const content: Record<Lang, PageContent> = {
       more: 'Scopri di piu',
       items: [
         {
-          title: 'Monitoraggi & rilievi',
-          text: 'Rilevazioni standardizzate, risultati chiari, decisioni affidabili.',
-          bullets: ['Metodologie aggiornate', 'Documentazione e risultati', 'Controllo degli effetti nel tempo'],
+          title: 'Rilievi e consulenza',
+          text: 'Monitoraggio della biodiversita e rilievi ecologici con competenze botaniche e zoologiche. Rilievi standardizzati della vegetazione, censimento delle specie, valutazione degli habitat e controllo degli effetti nel lungo periodo per decisioni ambientali fondate.',
+          bullets: ['Metodologia aggiornata secondo lo stato della scienza', 'Documentazione e risultati', 'Controllo degli effetti nel lungo periodo'],
         },
         {
           title: 'Educazione ambientale',
-          text: 'Workshop, escursioni e format interattivi.',
-          bullets: ['Approccio didattico', 'Materiali multilingue', 'Outreach ed eventi'],
+          text: 'Workshop, escursioni e format educativi che rendono tangibili le relazioni ecologiche. Contenuti fondati scientificamente, concetti innovativi di divulgazione e integrazione di formati di apprendimento analogici e digitali.',
+          bullets: ['Concetti didattici', 'Materiali multilingue', 'Eventi e divulgazione innovativa'],
         },
         {
           title: 'Progettazione naturalistica',
-          text: 'Pianificazione e accompagnamento di aree ricche di specie.',
-          bullets: ['Schemi di piantumazione e cura', 'Moduli habitat', 'Check biodiversita'],
+          text: 'Pianificazione e accompagnamento tecnico di aree ricche di specie e adatte al sito. Sviluppo di concetti ecologicamente fondati per promuovere biodiversita, diversita strutturale e habitat funzionali.',
+          bullets: ['Concetti di piantumazione e cura', 'Moduli habitat', 'Check biodiversita'],
         },
       ],
     },
@@ -241,13 +241,13 @@ export const content: Record<Lang, PageContent> = {
       bullets: [
         'Processo trasparente dal primo colloquio al monitoraggio',
         'Adatto a Comuni, hotel, scuole e aziende',
-        'Contenuti multilingue e facilmente fruibili',
+        'Contenuti multilingue facili da comunicare',
       ],
       callouts: {
         scienceTitle: 'Base scientifica',
-        scienceText: 'Letteratura aggiornata, standard e monitoraggi solidi - in modo chiaro e tracciabile.',
+        scienceText: 'Letteratura aggiornata, standard e piani di monitoraggio solidi - fondati e tracciabili.',
         impactTitle: 'Pratica e impatto',
-        impactText: 'Pianificabile, realizzabile, misurabile - con priorita chiare e controllo dei risultati.',
+        impactText: 'Pianificabile, realizzabile, misurabile - con priorita chiare e verifica dei risultati.',
       },
       cta: 'Richiedi colloquio',
     },
@@ -274,6 +274,12 @@ export const content: Record<Lang, PageContent> = {
           image: 'pau_luther',
         },
         {
+          name: 'Birgith Unterthurner',
+          description:
+            'Birgith Unterthurner lavora all intersezione tra ecologia della fauna selvatica, divulgazione e illustrazione. Con rigore scientifico e sensibilita progettuale traduce contenuti complessi in immagini e formati accessibili.',
+          image: 'birgith_unterthurner',
+        },
+        {
           name: 'Johannes Ruedl',
           description:
             'Johannes Ruedl unisce didattica e design a una vasta conoscenza della natura. Che si tratti di bosco o prato, montagna o geologia, sviluppa formati di divulgazione chiari e rende comprensibili anche i contenuti complessi.',
@@ -285,20 +291,14 @@ export const content: Record<Lang, PageContent> = {
             'David Hofer lavora all intersezione tra ricerca sulla biodiversita e IT. I suoi ambiti principali sono api selvatiche, farfalle diurne e funghi, oltre alla preparazione digitale, analisi e visualizzazione di dati ecologici.',
           image: 'david_hofer',
         },
-        {
-          name: 'Birgith Unterthurner',
-          description:
-            'Birgith Unterthurner porta una solida esperienza nel lavoro su progetti legati alla natura e supporta b*nature nella realizzazione di misure pratiche con impatto ecologico.',
-          image: 'birgith_unterthurner',
-        },
       ],
     },
     faq: {
-      heading: 'Domande frequenti',
+      heading: 'Informazioni in sintesi',
       items: [
-        { q: 'Come si svolge il primo colloquio?', a: '30-45 minuti online o in loco per definire obiettivi e tempi.' },
-        { q: 'Quali risultati ricevo?', a: 'Un concept su misura con raccomandazioni concrete e priorita.' },
-        { q: 'Per chi e adatto b*nature?', a: 'Per Comuni, scuole, hotel, aziende, istituzioni e privati.' },
+        { q: 'Come si svolge il primo colloquio?', a: 'Il primo colloquio dura di norma 30-45 minuti e si svolge online oppure sul posto. Definiamo obiettivi, condizioni di contesto e strutture esistenti dell area. Se necessario effettuiamo una prima valutazione in loco. In seguito definiamo un calendario realistico e i prossimi passaggi tecnici.' },
+        { q: 'Quali risultati ricevo?', a: 'Riceverai un concept tecnicamente fondato con raccomandazioni chiaramente prioritarie. A seconda della portata del progetto puo includere analisi dello stato attuale, valutazione ecologica, proposte concrete di intervento e indicazioni per l attuazione e lo sviluppo a lungo termine dell area.' },
+        { q: 'Per chi e adatto b*nature?', a: 'I nostri servizi si rivolgono a Comuni, scuole, hotel, aziende agricole, imprese, istituzioni e privati particolarmente motivati. Sono particolarmente adatti a chi desidera promuovere la biodiversita con basi tecniche solide e attuare misure sostenibili in modo strutturato.' },
       ],
     },
     contact: {
@@ -314,8 +314,8 @@ export const content: Record<Lang, PageContent> = {
       errorMessage: 'Controlla i campi del modulo e riprova.',
     },
     cta: {
-      heading: 'E ora di realizzare il tuo progetto.',
-      text: 'Colloquio iniziale gratuito per definire obiettivi e prossimi passi.',
+      heading: 'E il momento di trasformare il tuo progetto in realta.',
+      text: 'Primo colloquio gratuito - definiamo obiettivi, quadro di riferimento e prossimi passi.',
       primary: 'Richiedi colloquio',
     },
     footer: {
